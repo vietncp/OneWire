@@ -3,8 +3,8 @@ Chương trình này được viết dựa trên giao thức 1-Wire dùng cho vi
 Nguyễn Cảnh Việt, Khoa Vật lý, Đại học Khoa học Tự nhiên.
 */
 
-
-void  SetMode(unsigned char mode){//set tín hiệu I/O cho pin
+//set tín hiệu I/O cho pin
+void  SetMode(unsigned char mode){
   if (mode==0){
     pinMode(DS18B20_PIN, OUTPUT);
     digitalWrite(DS18B20_PIN,LOW);
@@ -12,6 +12,7 @@ void  SetMode(unsigned char mode){//set tín hiệu I/O cho pin
   else
     pinMode(DS18B20_PIN, INPUT);
 }
+//---------------------------------------------------------
 unsigned char DS18B20_Reset()     //khởi tạo cảm biến 
 {
   unsigned char result;
@@ -25,15 +26,17 @@ unsigned char DS18B20_Reset()     //khởi tạo cảm biến
 
   return result;
 }
-
-void DS18B20_Write1()//viết bit 1
+//---------------------------------------------------------
+//viết bit 1
+void DS18B20_Write1()
 {
   SetMode(0);
   delayMicroseconds(6);
   SetMode(1);//release bus
   delayMicroseconds(64);//54+10
 }
-
+//---------------------------------------------------------
+//viết bit 0
 void DS18B20_Write0()// viết bit 0
 {
   SetMode(0);  
@@ -41,7 +44,8 @@ void DS18B20_Write0()// viết bit 0
   SetMode(1);//release bus
   delayMicroseconds(10);  
 }
-
+//---------------------------------------------------------
+//viết bit
 void DS18B20_Write_Bit(unsigned char b)//viết bit
 {
   if(b == 1)
@@ -53,8 +57,9 @@ void DS18B20_Write_Bit(unsigned char b)//viết bit
     DS18B20_Write0();
   }
 }
-
-unsigned char DS18B20_Read_Bit()//đọc bit
+//---------------------------------------------------------
+//đọc bit
+unsigned char DS18B20_Read_Bit()
 {
   unsigned char result;
   SetMode(0);  
@@ -65,7 +70,9 @@ unsigned char DS18B20_Read_Bit()//đọc bit
   delayMicroseconds(60);
   return result;
 }
-unsigned int DS18B20_Read_Byte(void) { //đọc 1 byte
+//---------------------------------------------------------
+//đọc 1 byte
+unsigned int DS18B20_Read_Byte(void) {
    unsigned char result=0;
    unsigned char i;
    for(i=0;i<8;i++){                        //cho vòng lặp chạy 8 lần
@@ -74,9 +81,9 @@ unsigned int DS18B20_Read_Byte(void) { //đọc 1 byte
     }
    return result;
 }
-
-
-void DS18B20_Write_Byte(unsigned char b)//viết 1 byte
+//---------------------------------------------------------
+//viết 1 byte
+void DS18B20_Write_Byte(unsigned char b)
 {
   unsigned char i ;
 
@@ -86,6 +93,8 @@ void DS18B20_Write_Byte(unsigned char b)//viết 1 byte
     b >>= 1;                    //dịch bit tiếp theo xuống thành bit thấp nhất 
   }
 }
+
+
 void setup(){
   Serial.begin(9600);
   DS18B20_Reset();
