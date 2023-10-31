@@ -71,7 +71,7 @@ unsigned char DS18B20_Read_Bit()
   return result;
 }
 //---------------------------------------------------------
-//đọc 1 byte từ DS18B20. Vì khi gửi 1 byte, bit LSB được gửi đi trước. 
+//đọc 1 byte từ DS18B20. Vì khi gửi 1 byte, từng bit được gửi đi và bit LSB luôn được gửi đi trước. 
 ///
 unsigned int DS18B20_Read_Byte(void) {
    unsigned char result=0;
