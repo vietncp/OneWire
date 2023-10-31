@@ -88,7 +88,7 @@ void DS18B20_Write_Byte(unsigned char b)
 {
   unsigned char i ;
 
-  for(i=0;i<8;i++)               //cho vòng lặp chạy 8 lần
+  for(i=0;i<8;i++)               //cho vòng lặp chạy 8 lần để đọc đủ 1 byte do DS18B20 gửi đến
   {
     DS18B20_Write_Bit(b & 0x01);//lấy ra bit thấp nhất của bite b và gửi đi 
     b >>= 1;                    //dịch bit tiếp theo xuống thành bit thấp nhất 
