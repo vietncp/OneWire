@@ -76,7 +76,7 @@ unsigned char DS18B20_Read_Bit()
 unsigned int DS18B20_Read_Byte(void) {
    unsigned char result=0;
    unsigned char i;
-   for(i=0;i<8;i++){                        //cho vòng lặp chạy 8 lần
+   for(i=0;i<8;i++){                        //cho vòng lặp chạy 8 lần để đọc đủ 1 byte
     result>>=1;                             //dịch result sang phải 1
     result=result | DS18B20_Read_Bit()<< 7; //lưu bit đọc được vào bit cuối cùng của result
     }
