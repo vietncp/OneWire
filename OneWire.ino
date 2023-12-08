@@ -6,14 +6,14 @@ Nguyễn Cảnh Việt, Khoa Vật lý, Đại học Khoa học Tự nhiên.
 //set tín hiệu I/O cho pin
 void  SetMode(unsigned char mode){
   if (mode==0){
-    pinMode(DS18B20_PIN, OUTPUT);
+    pinMode(DS18B20_PIN, OUTPUT);    //Chân của master sẽ GỬI tín hiệu tới chân DATA của DS18B20
     digitalWrite(DS18B20_PIN,LOW);
   }
   else
-    pinMode(DS18B20_PIN, INPUT);
+    pinMode(DS18B20_PIN, INPUT);    //Chân của master sẽ NHẬN tín hiệu từ chân DATA của DS18B20
 }
 //---------------------------------------------------------
-unsigned char DS18B20_Reset()     //khởi tạo cảm biến 
+unsigned char DS18B20_Reset()       //khởi tạo cảm biến 
 {
   unsigned char result;
   SetMode(0);
@@ -71,8 +71,8 @@ unsigned char DS18B20_Read_Bit()
   return result;
 }
 //---------------------------------------------------------
-//đọc 1 byte từ DS18B20. Vì khi gửi 1 byte, từng bit được gửi đi và bit LSB luôn được gửi đi trước. 
-///
+//Master ĐỌC 1 byte từ DS18B20. Vì khi DS18B20 gửi 1 byte cho master, từng bit được gửi đi và bit LSB luôn được gửi đi trước. 
+//---------------------------------------------------------
 unsigned int DS18B20_Read_Byte(void) {
    unsigned char result=0;
    unsigned char i;
@@ -83,7 +83,8 @@ unsigned int DS18B20_Read_Byte(void) {
    return result;
 }
 //---------------------------------------------------------
-//viết 1 byte
+//Master GHI 1 byte ra DS18B20. Vì khi master ghi 1 byte tới DS18B20, từng bit được gửi đi và bit LSB luôn được gửi đi trước.
+//---------------------------------------------------------
 void DS18B20_Write_Byte(unsigned char b)
 {
   unsigned char i ;
