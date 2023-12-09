@@ -106,7 +106,7 @@ void DS18B20_Write_Byte(unsigned char b)
     b >>= 1;                    //dịch bit tiếp theo xuống thành bit thấp nhất 
   }
 }
-
+//---------------------------------------------------------
 
 void setup(){
   Serial.begin(9600);
