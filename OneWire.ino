@@ -3,7 +3,10 @@ Chương trình này được viết dựa trên giao thức 1-Wire dùng cho vi
 Nguyễn Cảnh Việt, Khoa Vật lý, Đại học Khoa học Tự nhiên.
 */
 
-//Cấu hình chân điều khiển nối với slave (dùng các I/O pin)
+
+//--------------------------------------------------------------------------
+//Hàm SetMode này cấu hình chân điều khiển nối với slave (dùng các I/O pin)
+//--------------------------------------------------------------------------
 void  SetMode(unsigned char mode){
   if (mode==0){
     pinMode(DS18B20_PIN, OUTPUT);    // Chân của master sẽ được  thiết lập để GỬI tín hiệu tới chân DATA của DS18B20
