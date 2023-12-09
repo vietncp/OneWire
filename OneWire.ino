@@ -3,11 +3,11 @@ Chương trình này được viết dựa trên giao thức 1-Wire dùng cho vi
 Nguyễn Cảnh Việt, Khoa Vật lý, Đại học Khoa học Tự nhiên.
 */
 
-//set tín hiệu I/O cho pin
+//Cấu hình chân điều khiển nối với slave (dùng các I/O pin)
 void  SetMode(unsigned char mode){
   if (mode==0){
-    pinMode(DS18B20_PIN, OUTPUT);    //Chân của master sẽ GỬI tín hiệu tới chân DATA của DS18B20
-    digitalWrite(DS18B20_PIN,LOW);
+    pinMode(DS18B20_PIN, OUTPUT);    // Chân của master sẽ được  thiết lập để GỬI tín hiệu tới chân DATA của DS18B20
+    digitalWrite(DS18B20_PIN,LOW);   // Kéo chân DATA xuống mức thấp (hoạt động)
   }
   else
     pinMode(DS18B20_PIN, INPUT);    //Chân của master sẽ NHẬN tín hiệu từ chân DATA của DS18B20
