@@ -71,7 +71,7 @@ unsigned char DS18B20_Read_Bit()
   delayMicroseconds(6);
   SetMode(1);
   delayMicroseconds(4);
-  result = digitalRead(DS18B20_PIN);
+  result = digitalRead(DS18B20_PIN);  //Đọc bit trên dây
   delayMicroseconds(60);
   return result;
 }
