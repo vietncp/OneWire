@@ -4,9 +4,12 @@ Nguyễn Cảnh Việt, Khoa Vật lý, Đại học Khoa học Tự nhiên.
 */
 
 
-//--------------------------------------------------------------------------
+/*--------------------------------------------------------------------------
 //Hàm SetMode này cấu hình chân điều khiển nối với slave (dùng các I/O pin)
-//--------------------------------------------------------------------------
+Ở đây dùng 2 hàm có sẵn của Arrduino là:
+1. Hàm pinMode: hàm này dung để điều hướng xuất hoặc nhập tín hiệu ra/vào hệ thống
+3. Hàm digitalWrite: hàm  này dùng để xuât mức điện áp HIGH(cao) hoặc LOW(thấp) ra một chân của vi điều khiển(master)
+--------------------------------------------------------------------------*/
 void  SetMode(unsigned char mode){
   if (mode==0){
     pinMode(DS18B20_PIN, OUTPUT);    // Chân của master sẽ được  thiết lập để GỬI tín hiệu tới chân DATA của DS18B20
