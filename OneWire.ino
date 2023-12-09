@@ -12,7 +12,12 @@ void  SetMode(unsigned char mode){
   else
     pinMode(DS18B20_PIN, INPUT);    //Chân của master sẽ NHẬN tín hiệu từ chân DATA của DS18B20
 }
-//---------------------------------------------------------
+//-----------------------------------------------------------------------
+Hàm DS18B20_Reset, dùng để tạo ra xung reset trên dây kết nối với cảm biến DS18B20
+Hàm này cũng xác nhận sự có mặt của DS18B20 hay không, nhờ kiểm tra xung Presence.
+Nếu Presence mà không được tạo ra bởi DS18B20 thì có nghĩa là KHÔNG có DS18B20
+Biến đại diện cho xung Presence trong hàm này là result
+//-----------------------------------------------------------------------
 unsigned char DS18B20_Reset()       //khởi tạo cảm biến 
 {
   unsigned char result;
